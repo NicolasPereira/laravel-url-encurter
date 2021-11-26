@@ -19,6 +19,14 @@ services:
       - "3306:3306"
     volumes:
       - 'laravelencurterdb:/var/lib/mysql/'
+  redisdb:
+      image: redis:latest
+      restart: always
+      volumes:
+          - ./redisdb:/data
+      ports:
+          - "6379:6379"
+
 
   nginx:
     build: ./.docker/nginx
